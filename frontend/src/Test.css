@@ -1,0 +1,104 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.testt 
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 0px;
+    transition: 0.3s;
+
+}
+.testt .mapping
+{
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 5px rgb(52, 51, 51);
+    margin: 8px;
+}
+.testt .mapping img 
+{
+    width: 100%;
+    height: 250px;
+    border-radius: 10px 10px 0px 0px;
+    transition: 0.3s;
+}
+.testt .mapping h1 
+{
+    font-size: 25px;
+    color: #fac031;
+    padding: 0  10px;
+    transform: translate(-10px);
+    opacity: 0;
+    transition: 0.3s;
+}
+.testt .mapping:hover h1 
+{
+    transform: translate(0px);
+    opacity: 1;
+    transition: 0.3s;
+}
+.testt .mapping p 
+{
+    text-align: justify;
+    padding: 5px  10px;
+    font-family: "Satisfy", cursive;
+    font-weight: bold;
+    font-size: 18px;
+}
+.testt .mapping button 
+{
+    margin: 10px;
+    
+}
+.testt .mapping:hover img
+{
+    transform: scale(1.01);
+    transition: 0.3s;
+}
+
+.testt .mapping button 
+{
+    padding: 6px 10px;
+    font-size: 18px;
+    border-radius: 7px;
+    border: none;
+    background-color: #fac031;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.testt .mapping button:hover
+{
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+    
+}
+.testt .mapping button i 
+{
+    transition: 0.3s;
+}
+
+
+.testt .mapping button:hover i
+{
+    transform: translateX(5px);
+    transition: 0.3s;
+}
+.ourmenus 
+{
+    text-align: center;
+    padding: 20px;
+    color: #fac031;
+    text-shadow: 
+    2px 2px 4px rgb(144, 56, 12),
+    4px 4px 6px rgb(176, 15, 15),
+    6px 6px 8px rgb(119, 74, 11);
+}
