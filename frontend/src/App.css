@@ -1,6 +1,168 @@
-*
-{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+/* Global Layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Modern Card Style for Questions (Shared) */
+.synanyms,
+.test-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.title {
+  text-align: center;
+  color: var(--primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.synn,
+.question-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.synn:hover,
+.question-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.synn h2,
+.question-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+  border-bottom: 2px solid #f3f4f6;
+  padding-bottom: 0.5rem;
+}
+
+/* Radio Button Styling */
+label {
+  display: block;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--radius);
+  background-color: #f9fafb;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  color: var(--text-main);
+  position: relative;
+  padding-left: 3rem;
+  /* Space for custom radio */
+}
+
+label:hover {
+  background-color: #eff6ff;
+  border-color: var(--primary);
+}
+
+label input[type="radio"] {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  accent-color: var(--primary);
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Answer Section */
+.synn p,
+.question-card p {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #ecfdf5;
+  color: var(--secondary);
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #d1fae5;
+}
+
+/* Buttons */
+.synn button,
+.question-card button {
+  background-color: #e5e7eb;
+  color: var(--text-main);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.synn button:hover,
+.question-card button:hover {
+  background-color: var(--text-main);
+  color: white;
+}
+
+/* Submit Button */
+.answerbutton {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.4);
+  transition: all 0.3s;
+}
+
+.answerbutton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.5);
+  filter: brightness(1.1);
+}
+
+/* Scoreboard */
+.scoreboard {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  padding: 2rem;
+  background: white;
+  margin-top: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Remove default overrides from individual files if they conflict */

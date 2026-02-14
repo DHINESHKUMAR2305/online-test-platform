@@ -1,104 +1,104 @@
-*
-{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+.testt {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 3rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.testt 
-{
+
+.testt .mapping {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 1px solid #f3f4f6;
+    display: flex;
+    flex-direction: column;
+}
+
+.testt .mapping:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.testt .mapping img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.testt .mapping:hover img {
+    transform: scale(1.05);
+}
+
+.testt .mapping h1 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    padding: 1.5rem 1.5rem 0.5rem;
+    margin: 0;
+    /* transition: color 0.3s; */
+    /* Removed opacity transition for simpler UX */
+    opacity: 1;
+    transform: none;
+}
+
+.testt .mapping:hover h1 {
+    color: var(--primary);
+}
+
+.testt .mapping p {
+    padding: 0 1.5rem;
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.5;
+    flex-grow: 1;
+    /* Pushes button to bottom */
+    font-family: 'Inter', sans-serif;
+    /* Override Satisfy if user prefers clean */
+}
+
+.testt .mapping button {
+    margin: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 20px 0px;
-    transition: 0.3s;
-
-}
-.testt .mapping
-{
-    width: 350px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 10px 5px rgb(52, 51, 51);
-    margin: 8px;
-}
-.testt .mapping img 
-{
-    width: 100%;
-    height: 250px;
-    border-radius: 10px 10px 0px 0px;
-    transition: 0.3s;
-}
-.testt .mapping h1 
-{
-    font-size: 25px;
-    color: #fac031;
-    padding: 0  10px;
-    transform: translate(-10px);
-    opacity: 0;
-    transition: 0.3s;
-}
-.testt .mapping:hover h1 
-{
-    transform: translate(0px);
-    opacity: 1;
-    transition: 0.3s;
-}
-.testt .mapping p 
-{
-    text-align: justify;
-    padding: 5px  10px;
-    font-family: "Satisfy", cursive;
-    font-weight: bold;
-    font-size: 18px;
-}
-.testt .mapping button 
-{
-    margin: 10px;
-    
-}
-.testt .mapping:hover img
-{
-    transform: scale(1.01);
-    transition: 0.3s;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
-.testt .mapping button 
-{
-    padding: 6px 10px;
-    font-size: 18px;
-    border-radius: 7px;
-    border: none;
-    background-color: #fac031;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-.testt .mapping button:hover
-{
-    background-color: black;
+.testt .mapping button:hover {
+    background-color: var(--primary);
     color: white;
-    transition: 0.3s;
-    
-}
-.testt .mapping button i 
-{
-    transition: 0.3s;
+    border-color: var(--primary);
 }
 
-
-.testt .mapping button:hover i
-{
-    transform: translateX(5px);
-    transition: 0.3s;
-}
-.ourmenus 
-{
+.ourmenus {
     text-align: center;
-    padding: 20px;
-    color: #fac031;
-    text-shadow: 
-    2px 2px 4px rgb(144, 56, 12),
-    4px 4px 6px rgb(176, 15, 15),
-    6px 6px 8px rgb(119, 74, 11);
+    padding: 4rem 1rem 1rem;
+    color: var(--text-main);
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-shadow: none;
+    /* Removed heavy text shadow for cleaner look */
+    position: relative;
+}
+
+.ourmenus::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 1rem auto;
+    border-radius: 2px;
 }

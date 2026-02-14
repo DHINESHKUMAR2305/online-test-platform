@@ -1,4 +1,4 @@
-import { BrowserRouter as Router , Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import "./App.css"
 import Nav from "./Nav"
 import Test from "./Test"
@@ -16,10 +16,9 @@ import Home from "./Home"
 import AOS from "aos"
 import "aos/dist/aos.css";
 
-const App = ()=>
-{
+const App = () => {
 
-  const [synanyms , setsynanyms] = useState([]);
+  const [synanyms, setsynanyms] = useState([]);
 
   useEffect(() => {
     AOS.init({
@@ -28,8 +27,7 @@ const App = ()=>
     });
   }, []);
 
-  useEffect(() => 
-  {
+  useEffect(() => {
     synn();
     anto();
     cod();
@@ -39,134 +37,123 @@ const App = ()=>
     gen();
   }, []);
 
-  const synn = async()=>
-  {
-    try 
-    {
-      const sy = await axios.get("http://localhost:2026/synonyms")
+  const synn = async () => {
+    try {
+      const sy = await axios.get("https://online-test-backend-ngjo.onrender.com/synonyms")
 
       setsynanyms(sy.data.data)
     }
-    catch(err)
-    {
-      console.log("something went wrong : "+err.message );
+    catch (err) {
+      console.log("something went wrong : " + err.message);
     }
   }
 
   //////////////////////////////////////////////////////////////////////
 
-  const [antonyms , setantonyms] = useState([])
+  const [antonyms, setantonyms] = useState([])
 
-  const anto = async()=>
-  {
+  const anto = async () => {
 
-    try 
-    {
-      const sy = await axios.get("http://localhost:2026/antonyms")
+    try {
+      const sy = await axios.get("https://online-test-backend-ngjo.onrender.com/antonyms")
 
       setantonyms(sy.data.data)
     }
-    catch(err)
-    {
-      console.log("something went wrong : "+err.message );
+    catch (err) {
+      console.log("something went wrong : " + err.message);
     }
-    
+
   }
 
   //////////////////////////////
 
-  const [aptitude , setaptitude] = useState([])
+  const [aptitude, setaptitude] = useState([])
 
-  const apti = async()=>
-  {
-    const sy = await axios.get("http://localhost:2026/aptitude")
+  const apti = async () => {
+    const sy = await axios.get("https://online-test-backend-ngjo.onrender.com/aptitude")
 
     setaptitude(sy.data.data)
   }
 
   ///////////////////////////////////////
 
-  const [coding , setcoding] = useState([])
+  const [coding, setcoding] = useState([])
 
-  const cod = async()=>
-  {
-    const sy = await axios.get("http://localhost:2026/coding")
+  const cod = async () => {
+    const sy = await axios.get("https://online-test-backend-ngjo.onrender.com/coding")
 
     setcoding(sy.data.data)
   }
-  
+
   ////////////////////////
 
-  const [games , setgames] = useState([])
+  const [games, setgames] = useState([])
 
-  const gam = async()=>
-  {
-    const sy = await axios.get("http://localhost:2026/games")
+  const gam = async () => {
+    const sy = await axios.get("https://online-test-backend-ngjo.onrender.com/games")
 
     setgames(sy.data.data)
   }
 
   //////////////////////////////////////
 
-  const [Culture , setculture] = useState([])
+  const [Culture, setculture] = useState([])
 
-  const cul = async()=>
-  {
-    const sy = await axios.get("http://localhost:2026/culture")
+  const cul = async () => {
+    const sy = await axios.get("https://online-test-backend-ngjo.onrender.com/culture")
     setculture(sy.data.data)
   }
 
   //////////////////////////
 
-  const [gk , setgk] = useState([])
+  const [gk, setgk] = useState([])
 
-  const gen = async()=>
-  {
-    const sk = await axios.get("http://localhost:2026/gk")
+  const gen = async () => {
+    const sk = await axios.get("https://online-test-backend-ngjo.onrender.com/gk")
 
     setgk(sk.data.data)
   }
-  
 
-  return(
-      <div className="app">
-        <Nav />
-        <Routes>
 
-          <Route path="/" element={<Home />}/>
+  return (
+    <div className="app">
+      <Nav />
+      <Routes>
 
-          <Route path="/test" element={<Test />} />
+        <Route path="/" element={<Home />} />
 
-          <Route path="/test/synonyms" element={<Synanyms 
-              synanyms = {synanyms}
-            />} />
+        <Route path="/test" element={<Test />} />
 
-            <Route path="/test/Antonyms" element={<Antonyms 
-              antonyms = {antonyms}
-            />}/>
+        <Route path="/test/synonyms" element={<Synanyms
+          synanyms={synanyms}
+        />} />
 
-            <Route path="/test/Aptitude" element={<Aptitude 
-                aptitude = {aptitude}
-            />}/>
+        <Route path="/test/Antonyms" element={<Antonyms
+          antonyms={antonyms}
+        />} />
 
-            <Route path="/test/Coding" element={<Coding 
-                coding = {coding}
-            />}/>
+        <Route path="/test/Aptitude" element={<Aptitude
+          aptitude={aptitude}
+        />} />
 
-            <Route path="/test/Games" element={<Game 
-                games = {games}
-            />} />
+        <Route path="/test/Coding" element={<Coding
+          coding={coding}
+        />} />
 
-            <Route path="/test/History&Culture" element={<History 
-                Culture = {Culture}
-            />}/>
+        <Route path="/test/Games" element={<Game
+          games={games}
+        />} />
 
-            <Route path="/test/GK" element={<Gk 
-              gk = {gk}
-            />} />
+        <Route path="/test/History&Culture" element={<History
+          Culture={Culture}
+        />} />
 
-        </Routes>
-      </div>
+        <Route path="/test/GK" element={<Gk
+          gk={gk}
+        />} />
+
+      </Routes>
+    </div>
   )
 }
 
