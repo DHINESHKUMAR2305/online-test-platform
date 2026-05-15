@@ -1,25 +1,30 @@
 
 const express = require("express")
-const dotenv =require("dotenv")
+const dotenv = require("dotenv")
 const path = require("path")
 const cors = require("cors")
 
-dotenv.config({path : path.join(__dirname,"./dotenv/config.env")})
+dotenv.config({ path: path.join(__dirname, "./dotenv/config.env") })
 const synonymsrouter = require("./router/Synanymsrouter")
 const antonymsrouter = require("./router/Antonymsrouter")
 const aptituderouter = require("./router/Aptituderouter")
 const codingrouter = require("./router/Codingrouter")
 const gamerouter = require("./router/Gamerouter")
-const historyrouter = require("./router/Historyrouter") 
+const historyrouter = require("./router/Historyrouter")
 const gkrouter = require("./router/Gkrouter")
 const connectionn = require("./Connectiondatabase")
 
-connectionn()
-
 
 const app = express()
-app.use(cors())
+
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}))
 app.use(express.json())
+
+connectionn()
 
 app.use(synonymsrouter)
 app.use(antonymsrouter)
@@ -30,7 +35,9 @@ app.use(historyrouter)
 app.use(gkrouter)
 
 
-app.listen(process.env.PORTNO , ()=>
-{
-    console.log("your port number is "+process.env.PORTNO);
-})
+
+const PORT = process.env.PORT || process.env.PORTNO || 2026;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});

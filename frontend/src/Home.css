@@ -1,64 +1,126 @@
 .mainbox {
     min-height: 90vh;
+    /* Use valid CSS background shorthand or explicit properties */
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("bgforhome.avif");
     background-size: cover;
     background-position: center;
+    /* Fixed attachment often buggy on mobile, so use scroll on small screens */
     background-attachment: fixed;
-    /* Parallax effect */
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    padding: 2rem;
+    padding: 2rem 1rem;
+    /* Reduced horizontal padding on mobile */
+}
+
+/* Mobile specific background adjustment */
+@media (max-width: 768px) {
+    .mainbox {
+        background-attachment: scroll;
+        min-height: 85vh;
+        /* slightly shorter on mobile */
+    }
 }
 
 .mainbox .mainbox2 {
     max-width: 800px;
+    width: 100%;
     text-align: center;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    /* Safari support */
     padding: 3rem;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+@media (max-width: 640px) {
+    .mainbox .mainbox2 {
+        padding: 2rem 1.5rem;
+    }
 }
 
 .mainbox .title {
     font-size: 3.5rem;
     color: white;
     margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 800;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+    .mainbox .title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainbox .title {
+        font-size: 2rem;
+    }
 }
 
 .mainbox .subtitle {
     font-size: 1.5rem;
     color: #e5e7eb;
     margin-bottom: 2rem;
-    font-weight: 300;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .mainbox .subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
 }
 
 .mainbox .desc {
     font-size: 1.125rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
     color: #d1d5db;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .mainbox .desc {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
 }
 
 .starttest {
     background-color: var(--primary);
     color: white;
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
+    padding: 1rem 3rem;
+    font-size: 1.125rem;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     transition: all 0.3s;
     display: inline-block;
     border: 2px solid transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 640px) {
+    .starttest {
+        width: 100%;
+        display: block;
+        padding: 1rem;
+    }
 }
 
 .starttest:hover {
     background-color: transparent;
     border-color: var(--primary);
     transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.4);
 }

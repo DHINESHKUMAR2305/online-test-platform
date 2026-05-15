@@ -1,37 +1,70 @@
-/* Global Layout */
+/* Global App Container */
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
 }
 
-/* Modern Card Style for Questions (Shared) */
+/* Question Page Container */
 .synanyms,
 .test-container {
   max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+  /* Ensure fits within parent */
 }
 
+/* Responsive adjustment for mobile */
+@media (max-width: 640px) {
+
+  .synanyms,
+  .test-container {
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+}
+
+/* Page Title */
 .title {
   text-align: center;
   color: var(--primary);
   font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  line-height: 1.2;
 }
 
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Question Card */
 .synn,
 .question-card {
   background: var(--bg-card);
   border-radius: var(--radius);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
   box-shadow: var(--shadow-md);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   border: 1px solid #e5e7eb;
+}
+
+@media (max-width: 640px) {
+
+  .synn,
+  .question-card {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .synn:hover,
@@ -43,17 +76,24 @@
 .synn h2,
 .question-card h2 {
   font-size: 1.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: var(--text-main);
   border-bottom: 2px solid #f3f4f6;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .synn h2 {
+    font-size: 1.1rem;
+  }
 }
 
 /* Radio Button Styling */
 label {
   display: block;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
   border-radius: var(--radius);
   background-color: #f9fafb;
   cursor: pointer;
@@ -64,6 +104,14 @@ label {
   position: relative;
   padding-left: 3rem;
   /* Space for custom radio */
+}
+
+@media (max-width: 640px) {
+  label {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+    padding-left: 2.75rem;
+  }
 }
 
 label:hover {
@@ -77,14 +125,15 @@ label input[type="radio"] {
   top: 50%;
   transform: translateY(-50%);
   accent-color: var(--primary);
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
 }
 
 /* Answer Section */
 .synn p,
 .question-card p {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   padding: 1rem;
   background-color: #ecfdf5;
   color: var(--secondary);
@@ -92,21 +141,34 @@ label input[type="radio"] {
   font-weight: 600;
   text-align: center;
   border: 1px solid #d1fae5;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Buttons */
 .synn button,
 .question-card button {
-  background-color: #e5e7eb;
+  background-color: #f3f4f6;
   color: var(--text-main);
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--radius);
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.2s;
   margin-top: 1rem;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
 }
 
 .synn button:hover,
@@ -119,18 +181,20 @@ label input[type="radio"] {
 .answerbutton {
   display: block;
   width: 100%;
-  max-width: 300px;
-  margin: 2rem auto;
+  max-width: 320px;
+  margin: 3rem auto;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   border: none;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.4);
   transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .answerbutton:hover {
@@ -142,15 +206,16 @@ label input[type="radio"] {
 /* Scoreboard */
 .scoreboard {
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.75rem;
+  font-weight: 800;
   color: var(--primary);
   padding: 2rem;
   background: white;
   margin-top: 2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
-  animation: popIn 0.5s ease;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid var(--primary);
 }
 
 @keyframes popIn {
@@ -166,3 +231,6 @@ label input[type="radio"] {
 }
 
 /* Remove default overrides from individual files if they conflict */
+* {
+  box-sizing: border-box;
+}
